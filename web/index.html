@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Заявка — помощник мастерской</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="inbox.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">заявка<span>↗</span></a
+      ><span class="section-tag">ПРИЁМ ОБРАЩЕНИЙ</span
+      ><span class="header-note">Бот → понятная заявка → мастер</span>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <div class="eyebrow">ДЛЯ НЕБОЛЬШИХ СЕРВИСНЫХ КОМАНД</div>
+          <h1>Клиент пишет.<br />Заявка уже собрана.</h1>
+          <p>
+            Помощник уточняет технику, неисправность и контакт.<br />Вы получаете структурированное
+            обращение.
+          </p>
+        </div>
+        <div class="intro-note">
+          <span>ПРОВЕРЬТЕ ВЕСЬ ПУТЬ</span>
+          <p>
+            Пройдите диалог слева.<br />После подтверждения карточка<br />появится в очереди справа.
+          </p>
+          <b>↙</b>
+        </div>
+      </section>
+      <div class="workspace">
+        <section class="chat-card" aria-label="Диалог с помощником">
+          <div class="chat-head">
+            <span class="avatar">м.</span>
+            <div>
+              <strong>Помощник мастерской</strong
+              ><small><i></i> Приём обращений · вся информация в одном месте</small>
+            </div>
+            <button id="restart" title="Начать новый диалог" aria-label="Начать заново">↻</button>
+          </div>
+          <div id="history" class="history" aria-live="polite"></div>
+          <div id="choices" class="choices"></div>
+          <form id="chat-form">
+            <label class="sr-only" for="message">Сообщение помощнику</label
+            ><input
+              id="message"
+              placeholder="Напишите сообщение…"
+              maxlength="1000"
+              autocomplete="off"
+            /><button id="send" aria-label="Отправить сообщение">↑</button>
+          </form>
+          <p class="chat-disclaimer">Перед отправкой вы сможете проверить все данные.</p>
+          <p id="error" class="error" role="alert" hidden></p>
+        </section>
+        <section class="inbox">
+          <div class="inbox-title">
+            <div>
+              <span class="eyebrow">ОЧЕРЕДЬ МАСТЕРСКОЙ</span>
+              <h2>Обращения <span id="count">0</span></h2>
+            </div>
+            <button id="refresh" aria-label="Обновить очередь">↻</button>
+          </div>
+          <div class="queue-filters">
+            <label
+              >Канал<select id="channel-filter">
+                <option value="all">Все обращения</option>
+                <option value="web">Браузер</option>
+                <option value="telegram">Telegram</option>
+              </select></label
+            ><label
+              >Статус<select id="status-filter">
+                <option value="all">Все статусы</option>
+                <option value="new">Новые</option>
+                <option value="progress">В работе</option>
+                <option value="done">Завершённые</option>
+              </select></label
+            >
+          </div>
+          <div id="leads"></div>
+          <div class="pipeline">
+            <span>01 &nbsp; Выбор услуги</span><span>02 &nbsp; Описание проблемы</span
+            ><span>03 &nbsp; Контакт и пожелание</span><span>04 &nbsp; Подтверждение → заявка</span>
+          </div>
+          <div class="integration-note">
+            <strong>Один сценарий. Два интерфейса.</strong>
+            <p>
+              Клиент заполняет заявку здесь или в Telegram. Владелец получает карточку обращения и
+              видит очередь со статусами. Канал Telegram подключается в настройках сервера.
+            </p>
+          </div>
+        </section>
+      </div>
+      <section class="details">
+        <div>
+          <span>ПОНЯТНЫЙ ВВОД</span>
+          <h3>Уточнит недостающее</h3>
+          <p>
+            Короткое описание и неверный контакт не пройдут дальше. До отправки можно вернуться
+            назад.
+          </p>
+        </div>
+        <div>
+          <span>НАДЁЖНОЕ СОХРАНЕНИЕ</span>
+          <h3>Повтор не создаст дубль</h3>
+          <p>
+            Повторная доставка одного сообщения не создаёт вторую заявку. Диалог переживает
+            перезапуск.
+          </p>
+        </div>
+        <div>
+          <span>ЧЕСТНЫЕ ОЖИДАНИЯ</span>
+          <h3>Пожелание ≠ запись</h3>
+          <p>
+            Бот собирает пожелание по времени. Подтверждённую запись должен согласовать человек.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      Заявка / помощник сервисной команды<span>Браузер · Telegram · единая очередь</span>
+    </footer>
+  </body>
+</html>
